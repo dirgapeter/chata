@@ -1,0 +1,10 @@
+{
+  "name": "chata-v-krpacove",
+  "version": "0.0.0",
+  "devDependencies": {
+    "karma": "^0.13.9",
+    "karma-chrome-launcher": "^0.2.0",
+    "jasmine-code": "^2.3.4",
+    "karma-jasmine": "^0.3.6"
+  }
+}
