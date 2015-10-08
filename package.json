@@ -6,7 +6,7 @@
   "repository": "https://github.com/dirga123/chata.git",
   "devDependencies": {
     "karma": "^0.13.10",
-    "karma-chrome-launcher": "^0.2.0",
+    "karma-chrome-launcher": "^0.2.1",
     "jasmine-core": "^2.3.4",
     "karma-jasmine": "^0.3.6"
   }
