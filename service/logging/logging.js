@@ -1,3 +1,6 @@
+//(function () {
+//  'use strict';
+
 angular.module('chata-v-krpacove').factory('logging', function (messaging, events) {
   var log = null;
 
@@ -64,3 +67,5 @@ angular.module('chata-v-krpacove').factory('logging', function (messaging, event
 
   return service;
 });
+
+//})();

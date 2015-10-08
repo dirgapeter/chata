@@ -1,8 +1,11 @@
 {
   "name": "chata-v-krpacove",
-  "version": "0.0.0",
+  "description": "Chata v Krpacove",
+  "version": "0.0.1",
+  "license": "UNLICENSED",
+  "repository": "https://github.com/dirga123/chata.git",
   "devDependencies": {
-    "karma": "^0.13.9",
+    "karma": "^0.13.10",
     "karma-chrome-launcher": "^0.2.0",
     "jasmine-core": "^2.3.4",
     "karma-jasmine": "^0.3.6"
