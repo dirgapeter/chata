@@ -1,7 +1,7 @@
 /*jshint -W117*/
 describe('messaging', function () {
 
-  beforeEach(module('brew-everywhere'));
+  beforeEach(module('chata-v-krpacove'));
 
   it('should store the subscriber in the cache', inject(function (messaging) {
     var callbackHandler = function (value) {

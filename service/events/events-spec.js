@@ -1,7 +1,7 @@
 describe('events', function() {
 
 
-  beforeEach(module('brew-everywhere'));
+  beforeEach(module('chata-v-krpacove'));
 
   it('should ', inject(function(events) {
 
