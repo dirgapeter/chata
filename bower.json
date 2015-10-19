@@ -16,6 +16,7 @@
     "angular-mocks": "~1.4.7",
     "bootstrap": "~3.3.5",
     "jquery": "~2.1.4",
-    "log4javascript": "~1.4.9"
+    "log4javascript": "~1.4.9",
+    "underscore": "~1.8.3"
   }
 }
