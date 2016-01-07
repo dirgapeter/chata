@@ -1,4 +1,4 @@
-var React = require("react");
+import React from 'react';
 import { Table } from 'react-bootstrap';
 
 const tableInstance = (
@@ -33,12 +33,8 @@ const tableInstance = (
   </Table>
 );
 
-var Prices = React.createClass({
-  render: function() {
-    return (
-      <div>{tableInstance}</div>
-    );
+export default class Prices extends React.Component {
+  render() {
+    return <div>{tableInstance}</div>;
   }
-});
-
-module.exports = Prices;
+}

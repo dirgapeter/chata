@@ -1,4 +1,3 @@
-//import connectToStores from 'alt/utils/connectToStores';
 import React from 'react';
 import CalendarStore from '../stores/CalendarStore.jsx';
 import moment from 'moment';
