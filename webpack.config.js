@@ -17,6 +17,8 @@ var config = {
       { test: /\.(woff|woff2)$/, loader:"url?prefix=font/&limit=5000" },
       { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/octet-stream" },
       { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=image/svg+xml" },
+      { test: /\.(jpg|png|gif)$/, loader: "url?limit=8192"},
+      { test: /\.(json)$/, loader: "json"},
       {
         test: /\.jsx$/,
         loader: "babel-loader",
@@ -25,10 +27,7 @@ var config = {
           presets: ["react", "es2015", "stage-0"]
         }
       },
-      {
-          test: /\.html$/,
-          loader: "file?name=[name].[ext]"
-      }
+      { test: /\.html$/, loader: "file?name=[name].[ext]" }
     ]
   }
 };

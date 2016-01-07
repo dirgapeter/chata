@@ -1,0 +1,52 @@
+{
+  "prices": [
+    {
+      "name": "Leto, mimosezóna",
+      "dates": "1.5 - 30.6, 2.9 - 23.9",
+      "pricePerPerson": "7€",
+      "pricePerCottage": "45€"
+    },
+    {
+      "name": "Leto",
+      "dates": "1.7 - 1.9",
+      "pricePerPerson": "9€",
+      "pricePerCottage": "50€"
+    },
+    {
+      "name": "Zima, mimosezóna",
+      "dates": "24.9 - 17.12",
+      "pricePerPerson": "9€",
+      "pricePerCottage": "50€"
+    },
+    {
+      "name": "Zima",
+      "dates": "18.12 - 30.4",
+      "pricePerPerson": "10€",
+      "pricePerCottage": "60€"
+    },
+    {
+      "name": "Silvester",
+      "dates": "24.12 - 7.1",
+      "pricePerPerson": "15€",
+      "pricePerCottage": "100€"
+    }
+  ],
+  "others": [
+    {
+      "name": "Dieťa bez nároku na lôžko",
+      "text": "0€"
+    },
+    {
+      "name": "Dieťa do 15r.",
+      "text": "5€"
+    },
+    {
+      "name": "Pes",
+      "text": "2€"
+    },
+    {
+      "name": "Zľava na týždnové pobyty",
+      "text": "5%"
+    }
+  ]
+}

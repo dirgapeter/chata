@@ -27,18 +27,6 @@ class CalendarUtils {
           //Load the calendar API ...
           gapi.client.load('calendar', 'v3', function(){
             utils.getCalendarEvents(moment());
-            //CalendarActions.today();
-              //  Then load the list of calendars
-
-              //utils.getCalendarList();
-              //utils.getCalendarEvents(moment());
-              //  Get the latest calendar information if we have a calendar selected:
-              /*
-              let settings = SettingsStore.getSettings();
-              if(settings.calendarid != "") {
-                utils.getCalendarEvents(settings.calendarid);
-              }
-              */
           });
       } else {
           // We're not authorized yet.  We should
@@ -46,26 +34,6 @@ class CalendarUtils {
           //CalendarActions.recieveCalendarAuthCheckResult(false);
       }
   }
-
-  /* Call the google API to get the list of calendars */
-   getCalendarList(){
-
-       //  Create the request
-       let request = gapi.client.calendar.calendarList.list();
-
-       //  Execute the request and get the response
-       request.execute(function(resp) {
-           let cals = resp.items;
-           if (cals.length > 0) {
-               //  Call the action to receive the data:
-               console.log("Calling CalendarActions.list");
-               //CalendarActions.list(cals);
-           }
-           else {
-               console.log("There was a problem getting the list of calendars");
-           }
-       });
-   }
 
    /* Call the google API to get the list of events for a calendarid */
    getCalendarEvents(date) {
