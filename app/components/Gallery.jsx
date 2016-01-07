@@ -1,12 +1,14 @@
-var React = require("react");
+import React from 'react';
+import { Jumbotron } from 'react-bootstrap';
 
-var Gallery = React.createClass({
-  render: function() {
+export default class Gallery extends React.Component {
+  render() {
     return (
-      <div>Gallery
+      <div>
+        <Jumbotron>
+          <p>Na chate môže byť ubytovaných až 9 hostí. Týždenné a víkendové pobyty sú uprednostnené. Po príchode je chata plne k dispozícii. Domáci miláčikovia sú vítaní.</p>
+        </Jumbotron>
       </div>
     );
   }
-});
-
-module.exports = Gallery;
+}

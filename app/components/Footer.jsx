@@ -1,14 +1,14 @@
-var React = require("react");
-import { Glyphicon, Button } from 'react-bootstrap';
+import React from 'react';
+import { Glyphicon, Jumbotron } from 'react-bootstrap';
 
-var Footer = React.createClass({
-  render: function() {
+export default class Footer extends React.Component {
+  render() {
     return (
-      <div className="text-center">
-        <Glyphicon glyph="phone" />+421 (902) 980 419 | <Glyphicon glyph="envelope" /> <a href="mailto:info@chata-v-krpacove.sk">info@chata-v-krpacove.sk</a>
-      </div>
+      <Jumbotron className="text-center">
+        <span><Glyphicon glyph="phone" />&nbsp;+421 (902) 980 419</span>
+        &nbsp;
+        <span><Glyphicon glyph="envelope" />&nbsp;<a href="mailto:info@chata-v-krpacove.sk">info@chata-v-krpacove.sk</a></span>
+      </Jumbotron>
     );
   }
-});
-
-module.exports = Footer;
+}
