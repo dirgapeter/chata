@@ -4,6 +4,19 @@ var init = function() {
   window.initGapi();
 }
 
+angular.module('chata-v-krpacove').config(function ($routeProvider) {
+  $routeProvider.
+    when('/', {templateUrl: 'partial/home/home.html'}).
+    when('/home', {templateUrl: 'partial/home/home.html'}).
+    when('/gallery', {templateUrl: 'partial/gallery/gallery.html'}).
+    when('/calendar', {templateUrl: 'partial/calendar/calendar.html'}).
+    when('/location', {templateUrl: 'partial/location/location.html'}).
+    when('/prices', {templateUrl: 'partial/prices/prices.html'}).
+    when('/error', {templateUrl: 'partial/error/error.html'}).
+    otherwise({redirectTo: '/home'}
+  );
+});
+
 angular.module('chata-v-krpacove')
   .run(function (logging) {
     logging.init('main');

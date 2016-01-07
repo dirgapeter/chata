@@ -17,15 +17,15 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Chata v Krpáčove</a>
+        <a class="navbar-brand" href="#/">Chata v Krpáčove</a>
       </div>
 
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">Galéria</a></li>
-          <li><a href="#">Poloha</a></li>
-          <li><a href="#">Obsadenosť</a></li>
-          <li><a href="#">Cenník</a></li>
+          <li><a href="#/gallery">Galéria</a></li>
+          <li><a href="#/location">Poloha</a></li>
+          <li><a href="#/calendar">Obsadenosť</a></li>
+          <li><a href="#/prices">Cenník</a></li>
         </ul>
       </div>
     </div>
@@ -34,6 +34,8 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
+        <div ng-view>
+        </div>
       </div>
     </div>
   </div>
@@ -63,6 +65,12 @@
   <script src="service/bookingCalendar/bookingCalendar.js"></script>
 
   <script src="partial/base/base.js"></script>
+  <script src="partial/error/error.js"></script>
+  <script src="partial/home/home.js"></script>
+  <script src="partial/calendar/calendar.js"></script>
+  <script src="partial/gallery/gallery.js"></script>
+  <script src="partial/prices/prices.js"></script>
+  <script src="partial/location/location.js"></script>
 
   <script src="https://apis.google.com/js/client.js?onload=init"></script>
 </body>
