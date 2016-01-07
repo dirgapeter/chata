@@ -5,7 +5,7 @@ var BUILD_PATH = path.resolve(ROOT_PATH, 'dist');
 
 var config = {
   context: APP_PATH,
-  entry: ["./index.html", "./main.jsx"],
+  entry: ["./index.html", "./favicon.ico", "./main.jsx"],
   output: {
     path: BUILD_PATH,
     filename: 'bundle.js'
@@ -27,7 +27,8 @@ var config = {
           presets: ["react", "es2015", "stage-0"]
         }
       },
-      { test: /\.html$/, loader: "file?name=[name].[ext]" }
+      { test: /\.html$/, loader: "file?name=[name].[ext]" },
+      { test: /\.ico$/, loader: "file?name=[name].[ext]" }
     ]
   }
 };
