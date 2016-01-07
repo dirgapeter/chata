@@ -68,12 +68,12 @@ export default class Calendar extends React.Component {
     onNextMonth: React.PropTypes.func/*.isRequired*/,
     onPrevMonth: React.PropTypes.func/*.isRequired*/,
     onPickDate: React.PropTypes.func
-  }
+  };
 
   static defaultProps = {
     weekOffset: 0,
     renderDay: day => day.format('D')
-  }
+  };
 
   constructor(props) {
     super(props);
