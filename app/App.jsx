@@ -42,11 +42,7 @@ export default class App extends React.Component {
               {this.props.children}
             </Col>
           </Row>
-          <Row>
-            <Col md={12} sm={12} xs={12}>
-              <Footer/>
-            </Col>
-          </Row>
+          <Footer/>
         </Grid>
       </div>
     );

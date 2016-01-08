@@ -12,11 +12,11 @@ class CalendarStore {
      this.state = {
        date: moment(),
        calendar: []
-     }
+     };
    }
 
    calendar(newState) {
-     console.log("CalendarStore.calendar ", newState.date.format(), newState.calendar);
+     console.log('CalendarStore.calendar ', newState.date.format(), newState.calendar);
      this.setState(newState);
    }
 
@@ -25,22 +25,22 @@ class CalendarStore {
 
    next() {
      let date = this.state.date;
-     date.add(1, "M");
-     console.log("CalendarStore.next ", date.format());
+     date.add(1, 'M');
+     console.log('CalendarStore.next ', date.format());
      CalendarUtils.getCalendarEvents(date);
    }
 
    previous() {
      let date = this.state.date;
-     date.add(-1, "M");
-     console.log("CalendarStore.next ", date.format());
+     date.add(-1, 'M');
+     console.log('CalendarStore.next ', date.format());
      CalendarUtils.getCalendarEvents(date);
    }
 
    today() {
      moment.locale('sk');
      let now = moment();
-     console.log("CalendarStore.today ", now.format());
+     console.log('CalendarStore.today ', now.format());
      CalendarUtils.getCalendarEvents(now);
    }
 }

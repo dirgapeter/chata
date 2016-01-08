@@ -8,7 +8,9 @@ export default class Prices extends React.Component {
     return (
       <div>
         <Jumbotron>
-          <p>Na chate môže byť ubytovaných až 9 hostí. Týždenné a víkendové pobyty sú uprednostnené. Po príchode je chata plne k dispozícii. Domáci miláčikovia sú vítaní.</p>
+          <p>Na chate môže byť ubytovaných až 9 hostí. Týždenné a víkendové
+          pobyty sú uprednostnené. Po príchode je chata plne k dispozícii.
+          Domáci miláčikovia sú vítaní.</p>
         </Jumbotron>
         <Table striped bordered responsive>
           <thead>

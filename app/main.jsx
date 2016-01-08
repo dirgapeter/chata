@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './main.less';
-import React from "react";
+import React from 'react';
 import ReactDOM from 'react-dom';
 import createHistory from 'history/lib/createHashHistory';
 import { Router, Route, IndexRoute } from 'react-router';
@@ -30,8 +30,8 @@ const routerInstance = (
 );
 
 //  'Google client loaded' handler
-window.handleGoogleClientLoad = function(){
-    CalendarUtils.authorize();
-}
+window.handleGoogleClientLoad = function() {
+  CalendarUtils.authorize();
+};
 
 ReactDOM.render(routerInstance, document.getElementById('app'));

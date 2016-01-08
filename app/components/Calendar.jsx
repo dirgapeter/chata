@@ -31,39 +31,38 @@ export default class Calendar extends React.Component {
   }
 
   componentDidMount() {
-    console.log("componentDidMount");
+    console.log('componentDidMount');
     CalendarStore.listen(this.storedChanged);
   }
 
   componentWillUnmount() {
-    console.log("componentWillUnmount");
+    console.log('componentWillUnmount');
     CalendarStore.unlisten(this.storedChanged);
   }
 
   storeChanged(state) {
-    console.log("storeChanged");
+    console.log('storeChanged');
     this.setState(state);
   }
 
   onPrevMonth() {
-    console.log("onPrevMonth");
+    console.log('onPrevMonth');
     CalendarActions.previous();
   }
 
   onNextMonth() {
-    console.log("onNextMonth");
+    console.log('onNextMonth');
     CalendarActions.next();
   }
 
   onToday() {
-    console.log("onToday");
+    console.log('onToday');
     CalendarActions.today();
   }
 
-  keys(end)
-  {
-    let index = -1,
-      result = Array(end);
+  keys(end) {
+    let index = -1;
+    let result = Array(end);
 
     while (++index < end) {
       result[index] = index;
@@ -77,9 +76,11 @@ export default class Calendar extends React.Component {
     const startOfMonth = date.startOf('month');
 
     let diff = startOfMonth.weekday() - weekOffset;
-    if (diff < 0) diff += 7;
+    if (diff < 0) {
+      diff += 7;
+    }
 
-  //  const prevMonthDays = [...Array(diff).keys()].map(n => ({
+    //  const prevMonthDays = [...Array(diff).keys()].map(n => ({
     const prevMonthDays = this.keys(diff).map(n => ({
       day: startOfMonth.clone().subtract(diff - n, 'days'),
       classNames: 'prevMonth'
@@ -87,8 +88,8 @@ export default class Calendar extends React.Component {
 
     //const currentMonthDays = [...Array(date.daysInMonth()).keys()].map(n => ({
     const currentMonthDays = this.keys(date.daysInMonth()).map(n => ({
-        day: moment([date.year(), date.month(), n + 1]),
-        classNames: 'currMonth'
+      day: moment([date.year(), date.month(), n + 1]),
+      classNames: 'currMonth'
     }));
 
     const daysAddedInLastWeek = (prevMonthDays.length + currentMonthDays.length) % 7;
@@ -96,78 +97,39 @@ export default class Calendar extends React.Component {
 
     //const nextMonthDays = [...Array(nextDays).keys()].map(n => ({
     const nextMonthDays = this.keys(nextDays).map(n => ({
-        day: currentMonthDays[currentMonthDays.length - 1].day.clone().add(n + 1, 'days'),
-        classNames: 'nextMonth'
+      day: currentMonthDays[currentMonthDays.length - 1].day.clone().add(n + 1, 'days'),
+      classNames: 'nextMonth'
     }));
 
     return [...prevMonthDays, ...currentMonthDays, ...nextMonthDays];
   }
 
   render() {
-    console.log("Calendar.render");
+    console.log('Calendar.render');
     moment.locale('sk');
 
     const date = this.state.date;
     const calendar = this.state.calendar;
     const { weekOffset, renderDay } = this.props;
 
-  	return (
-      <div className='Calendar'>
-        <div className='Calendar-header'>
-          <div className='Calendar-header-currentDate'>{date.format('MMMM YYYY')}</div>
-          <button onClick={this.onPrevMonth}>&laquo;</button>
-          <button onClick={this.onToday}>Dnes</button>
-          <button onClick={this.onNextMonth}>&raquo;</button>
-        </div>
-        <div className='Calendar-grid'>
-          {this.createDateObjects(date, weekOffset).map((day, i) =>
-            <div
-              key={`day-${i}`}
-              className={`Calendar-grid-item ${day.classNames || ''}`}
-            >
-              {renderDay(day.day)}
-            </div>
-          )}
-        </div>
-      </div>);
-
-          /*
-          if (this.state.errorMessage) {
-            return (
-              <div>Something is wrong</div>
-            );
-          }
-          */
-      /*
-          if (!this.props.calendars.length) {
-            return (
-              <div>
-                <img src="/my-cool-spinner.gif" />
-              </div>
-            )
-          }
-      */
-          //  First, see if we have events
-          /*
-          if(calendar == null || calendar.items == null || calendar.items.length == 0) {
-            return (<div id="calendar-empty">No calendar events left for today</div>);
-          }
-          */
-
-          //  If we do, display them:
-          //let formattedStatus = calendar.summary + ' last updated ' + moment(calendar.updated).format("h:mma");
-
-    /*
-        <div>
-          <div id="calendar-status" className="dashboard-status">{formattedStatus}</div>
-          <table id="calendar" className="table">
-            <tbody>
-              {calendar.items.map((eventinfo) => {
-                return [<CalendarEventItem key={eventinfo.id} eventinfo={eventinfo}/>, <CalendarEventMoreInfo key={"mi"+eventinfo.id} eventinfo={eventinfo}/>];
-              })}
-            </tbody>
-          </table>
-        </div>;
-      */
+    return (
+        <div className="Calendar">
+                  <div className="Calendar-header">
+                      <div className="Calendar-header-currentDate">{date.format('MMMM YYYY')}</div>
+                      <button onClick={this.onPrevMonth}>«</button>
+                      <button onClick={this.onToday}>Dnes</button>
+                      <button onClick={this.onNextMonth}>»</button>
+                  </div>
+                  <div className="Calendar-grid">
+                      {this.createDateObjects(date, weekOffset).map((day, i) =>
+              <div
+                key={`day-${i}`}
+                className={`Calendar-grid-item ${day.classNames || ''}`}
+              >
+                              {renderDay(day.day)}
+                          </div>
+            )}
+                  </div>
+              </div>);
   }
 }

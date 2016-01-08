@@ -17,7 +17,7 @@ class CalendarUtils {
         'scope': this.scope,
         'immediate': true
       }, utils.handleAuthResult);
-    }
+  }
 
     handleAuthResult(authResult) {
       if (authResult && !authResult.error) {
@@ -25,7 +25,7 @@ class CalendarUtils {
         //CalendarActions.receiveCalendarAuthCheckResult(true);
 
         //Load the calendar API ...
-        gapi.client.load('calendar', 'v3', function(){
+        gapi.client.load('calendar', 'v3', function() {
           utils.getCalendarEvents(moment());
         });
       } else {
@@ -38,13 +38,13 @@ class CalendarUtils {
     /* Call the google API to get the list of events for a calendarid */
     getCalendarEvents(date) {
       if (gapi.client.calendar == null) {
-        console.log("Got no gapi.client.calendar - Trying to re-authenticate");
+        console.log('Got no gapi.client.calendar - Trying to re-authenticate');
         utils.authorize();
         return;
       }
       //  Set the min/max times for event display:
-      const dateMin = date.clone().add(-1, "M").startOf('month');
-      const dateMax = date.clone().add(1, "M").endOf('month');
+      const dateMin = date.clone().add(-1, 'M').startOf('month');
+      const dateMax = date.clone().add(1, 'M').endOf('month');
 
       //  Create the request
       let requestParams = {
@@ -56,14 +56,14 @@ class CalendarUtils {
         'orderBy': 'startTime'
       };
 
-      console.log("Requesting calendar events: ", requestParams);
+      console.log('Requesting calendar events: ', requestParams);
       let request = gapi.client.calendar.events.list(requestParams);
 
       //  Execute the request and get the response
       request.execute(function(resp) {
         //  If we get a code == 403 here, should we attempt to re-authenticate or something?
-        if(resp.code == 403) {
-          console.log("Got a strange response: ", resp, " - Trying to re-authenticate");
+        if (resp.code == 403) {
+          console.log('Got a strange response: ', resp, ' - Trying to re-authenticate');
           utils.authorize();
         } else {
           //  Call the action to receive the data
@@ -74,7 +74,7 @@ class CalendarUtils {
         }
       });
     }
-  };
+};
 
-  utils = new CalendarUtils();
-  export default utils;
+utils = new CalendarUtils();
+export default utils;
