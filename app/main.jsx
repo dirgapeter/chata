@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './main.css';
+import './main.less';
 import React from "react";
 import ReactDOM from 'react-dom';
 import createHistory from 'history/lib/createHashHistory';

@@ -4,69 +4,12 @@ import moment from 'moment';
 import { Glyphicon, Button } from 'react-bootstrap';
 import CalendarActions from '../actions/CalendarActions.jsx';
 
-class CalendarEventItem extends React.Component {
-  render() {
-    //  Format the display:
-    var eventStart = "All day";
-    var eventEnd = "";
-
-    if(this.props.eventinfo.start.dateTime != null)
-    {
-      eventStart = Moment(this.props.eventinfo.start.dateTime).format("h:mma");
-      eventEnd = " - " + Moment(this.props.eventinfo.end.dateTime).format("h:mma");
-    }
-
-    var summary = this.props.eventinfo.summary;
-
-  	return <tr><td>{eventStart}{eventEnd}</td><td>{summary}</td></tr>;
-  }
-}
-
-class CalendarEventMoreInfo extends React.Component {
-  render() {
-    //  Get the description or a default & cut it down to size
-    var description = this.props.eventinfo.description || "";
-    var description = description.substring(0, 100);
-
-  	return <tr><td style={{"border": "none"}} className="event-moreinfo" colSpan="2">{description}</td></tr>;
-  }
-}
-
-function createDateObjects(date, weekOffset = 0) {
-  moment.locale('sk');
-  const startOfMonth = date.startOf('month');
-
-  let diff = startOfMonth.weekday() - weekOffset;
-  if (diff < 0) diff += 7;
-
-  const prevMonthDays = [...Array(diff).keys()].map(n => ({
-    day: startOfMonth.clone().subtract(diff - n, 'days'),
-    classNames: 'prevMonth'
-  }));
-
-  const currentMonthDays = [...Array(date.daysInMonth()).keys()].map(n => ({
-      day: moment([date.year(), date.month(), n + 1])
-  }));
-
-  const daysAddedInLastWeek = (prevMonthDays.length + currentMonthDays.length) % 7;
-  const nextDays = (daysAddedInLastWeek === 0 ? 0 : 7 - daysAddedInLastWeek);
-
-  const nextMonthDays = [...Array(nextDays).keys()].map((n) => ({
-      day: currentMonthDays[currentMonthDays.length - 1].day.clone().add(n + 1, 'days'),
-      classNames: 'nextMonth'
-  }));
-
-  return [...prevMonthDays, ...currentMonthDays, ...nextMonthDays];
-}
-
 export default class Calendar extends React.Component {
   static propTypes = {
     weekOffset: React.PropTypes.number/*.isRequired*/,
-    date: React.PropTypes.object/*.isRequired*/,
     renderDay: React.PropTypes.func,
     onNextMonth: React.PropTypes.func/*.isRequired*/,
     onPrevMonth: React.PropTypes.func/*.isRequired*/,
-    onPickDate: React.PropTypes.func
   };
 
   static defaultProps = {
@@ -117,6 +60,49 @@ export default class Calendar extends React.Component {
     CalendarActions.today();
   }
 
+  keys(end)
+  {
+    let index = -1,
+      result = Array(end);
+
+    while (++index < end) {
+      result[index] = index;
+    }
+
+    return result;
+  }
+
+  createDateObjects(date, weekOffset = 0) {
+    moment.locale('sk');
+    const startOfMonth = date.startOf('month');
+
+    let diff = startOfMonth.weekday() - weekOffset;
+    if (diff < 0) diff += 7;
+
+  //  const prevMonthDays = [...Array(diff).keys()].map(n => ({
+    const prevMonthDays = this.keys(diff).map(n => ({
+      day: startOfMonth.clone().subtract(diff - n, 'days'),
+      classNames: 'prevMonth'
+    }));
+
+    //const currentMonthDays = [...Array(date.daysInMonth()).keys()].map(n => ({
+    const currentMonthDays = this.keys(date.daysInMonth()).map(n => ({
+        day: moment([date.year(), date.month(), n + 1]),
+        classNames: 'currMonth'
+    }));
+
+    const daysAddedInLastWeek = (prevMonthDays.length + currentMonthDays.length) % 7;
+    const nextDays = (daysAddedInLastWeek === 0 ? 0 : 7 - daysAddedInLastWeek);
+
+    //const nextMonthDays = [...Array(nextDays).keys()].map(n => ({
+    const nextMonthDays = this.keys(nextDays).map(n => ({
+        day: currentMonthDays[currentMonthDays.length - 1].day.clone().add(n + 1, 'days'),
+        classNames: 'nextMonth'
+    }));
+
+    return [...prevMonthDays, ...currentMonthDays, ...nextMonthDays];
+  }
+
   render() {
     console.log("Calendar.render");
     moment.locale('sk');
@@ -134,7 +120,7 @@ export default class Calendar extends React.Component {
           <button onClick={this.onNextMonth}>&raquo;</button>
         </div>
         <div className='Calendar-grid'>
-          {createDateObjects(date, weekOffset).map((day, i) =>
+          {this.createDateObjects(date, weekOffset).map((day, i) =>
             <div
               key={`day-${i}`}
               className={`Calendar-grid-item ${day.classNames || ''}`}
