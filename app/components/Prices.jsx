@@ -1,12 +1,12 @@
 import React from 'react';
-import { Jumbotron, Table } from 'react-bootstrap';
+import { Jumbotron, Table, Col } from 'react-bootstrap';
 
 export default class Prices extends React.Component {
   render() {
     const data = require('../data/prices.json');
 
     return (
-      <div>
+      <Col md={12} sm={12} xs={12}>
         <Jumbotron>
           <p>Na chate môže byť ubytovaných až 9 hostí. Týždenné a víkendové
           pobyty sú uprednostnené. Po príchode je chata plne k dispozícii.
@@ -41,7 +41,7 @@ export default class Prices extends React.Component {
           )}
           </tbody>
         </Table>
-      </div>
+      </Col>
     );
   }
 }
