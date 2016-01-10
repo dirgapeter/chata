@@ -1,7 +1,7 @@
 import React from 'react';
 import CalendarStore from '../stores/CalendarStore.jsx';
 import moment from 'moment';
-import { Glyphicon, Button, Col } from 'react-bootstrap';
+import { Glyphicon, Button, Row, Col } from 'react-bootstrap';
 import CalendarActions from '../actions/CalendarActions.jsx';
 
 export default class Calendar extends React.Component {
@@ -113,6 +113,7 @@ export default class Calendar extends React.Component {
     const { weekOffset, renderDay } = this.props;
 
     return (
+      <Row>
       <Col md={12} sm={12} xs={12}>
         <div className="Calendar">
                   <div className="Calendar-header">
@@ -133,6 +134,7 @@ export default class Calendar extends React.Component {
                   </div>
               </div>
       </Col>
+      </Row>
     );
   }
 }

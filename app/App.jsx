@@ -37,11 +37,7 @@ export default class App extends React.Component {
       <div>
         {navbarInstance}
         <Grid>
-          <Row>
-            <Col md={12} sm={12} xs={12}>
-              {this.props.children}
-            </Col>
-          </Row>
+          {this.props.children}
           <Footer/>
         </Grid>
       </div>
