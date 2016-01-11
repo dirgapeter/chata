@@ -3,6 +3,7 @@ import CalendarStore from '../stores/CalendarStore.jsx';
 import moment from 'moment';
 import { Glyphicon, Table, Well, Label, Button, Row, Col, Alert } from 'react-bootstrap';
 import CalendarActions from '../actions/CalendarActions.jsx';
+import Loader from './Loader.jsx';
 
 class Week extends React.Component {
   render() {
@@ -12,7 +13,7 @@ class Week extends React.Component {
     let date = this.props.date;
 
     for (let i = 0; i < 7; i++) {
-      let busy = calendar.items ? calendar.items.findIndex((event, i) => {
+      let busy = calendar && calendar.items ? calendar.items.findIndex((event, i) => {
         if (date.isSameOrAfter(event.start.date) && date.isBefore(event.end.date)) {
           return true;
         }
@@ -119,9 +120,15 @@ export default class Calendar extends React.Component {
       alert = <Alert bsStyle="danger">{error}</Alert>;
     }
 
+    let loader;
+    if (!calendar && !error) {
+      loader = <Loader />;
+    }
+
     return (
       <Row id="calendar">
         {alert}
+        {loader}
         <Col md={12} sm={12} xs={12}>
           <Well>
             <p>Na chate môže byť ubytovaných až 9 hostí. Týždenné a víkendové

@@ -11,7 +11,7 @@ class CalendarStore {
 
      this.state = {
        date: moment(),
-       calendar: [],
+       calendar: null,
        error: null
      };
    }
@@ -23,6 +23,7 @@ class CalendarStore {
 
    error(err) {
      this.setState({
+       calendar: null,
        error: err
      });
    }

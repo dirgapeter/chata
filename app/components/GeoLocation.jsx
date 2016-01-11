@@ -1,11 +1,13 @@
 import React from 'react';
 import { Image, Well, Row, Col } from 'react-bootstrap';
+import Loader from './Loader.jsx';
 
 export default class GeoLocation extends React.Component {
   render() {
     return (
       <Row id="location">
         <Col md={12} sm={12} xs={12}>
+          <Loader />
           <Well>
             <p>Chata sa nachádza na južných svahoch Nízkych Tatier, v obľúbenej
             rekreačnej oblasti Krpáčovo, len pár kilometrov vzdialenej od
