@@ -6,7 +6,7 @@ export default class Prices extends React.Component {
     const data = require('../data/prices.json');
 
     return (
-      <Row>
+      <Row id="prices">
         <Col md={12} sm={12} xs={12}>
           <Well>
             <p>Na chate môže byť ubytovaných až 9 hostí. Týždenné a víkendové

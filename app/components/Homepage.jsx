@@ -4,7 +4,7 @@ import { Well, Row, Col, Image } from 'react-bootstrap';
 export default class Homepage extends React.Component {
   render() {
     return (
-      <Row>
+      <Row id="home">
         <Col md={6} sm={6} xs={12}>
           <Well>
             <p>Chata sa nachádza na južných svahoch Nízkych Tatier, v obľúbenej rekreačnej oblasti Krpáčovo, len pár kilometrov vzdialenej od rekreačnej oblasti Tále a Chopok-juh. Je situovaná v lese, na peknom slnečnom pozemku s dobrým prístupom v zime.</p>

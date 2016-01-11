@@ -4,7 +4,7 @@ import { Glyphicon, Row, Col } from 'react-bootstrap';
 export default class Footer extends React.Component {
   render() {
     return (
-      <Row>
+      <Row id="footer">
         <Col sm={6} xs={12} className="text-sm-right text-xs-center">
           <span><Glyphicon glyph="phone" />&nbsp;+421 (902) 980 419</span>
         </Col>

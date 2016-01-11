@@ -11,7 +11,8 @@ class CalendarStore {
 
      this.state = {
        date: moment(),
-       calendar: []
+       calendar: [],
+       error: null
      };
    }
 
@@ -20,17 +21,20 @@ class CalendarStore {
      this.setState(newState);
    }
 
-   error() {
+   error(err) {
+     this.setState({
+       error: err
+     });
    }
 
-   next() {
+   nextMonth() {
      let date = this.state.date;
      date.add(1, 'M');
      console.log('CalendarStore.next ', date.format());
      CalendarUtils.getCalendarEvents(date);
    }
 
-   previous() {
+   previousMonth() {
      let date = this.state.date;
      date.add(-1, 'M');
      console.log('CalendarStore.next ', date.format());
@@ -39,9 +43,9 @@ class CalendarStore {
 
    today() {
      moment.locale('sk');
-     let now = moment();
-     console.log('CalendarStore.today ', now.format());
-     CalendarUtils.getCalendarEvents(now);
+     let date = moment();
+     console.log('CalendarStore.today ', date.format());
+     CalendarUtils.getCalendarEvents(date);
    }
 }
 

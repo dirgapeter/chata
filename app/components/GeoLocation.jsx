@@ -4,7 +4,7 @@ import { Image, Well, Row, Col } from 'react-bootstrap';
 export default class GeoLocation extends React.Component {
   render() {
     return (
-      <Row>
+      <Row id="location">
         <Col md={12} sm={12} xs={12}>
           <Well>
             <p>Chata sa nachádza na južných svahoch Nízkych Tatier, v obľúbenej
