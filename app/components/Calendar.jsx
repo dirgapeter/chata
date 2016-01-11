@@ -4,6 +4,7 @@ import moment from 'moment';
 import { Glyphicon, Table, Well, Label, Button, Row, Col, Alert } from 'react-bootstrap';
 import CalendarActions from '../actions/CalendarActions.jsx';
 import Loader from './Loader.jsx';
+import CalendarUtils from '../utils/CalendarUtils.jsx';
 
 class Week extends React.Component {
   render() {
@@ -13,8 +14,8 @@ class Week extends React.Component {
     let date = this.props.date;
 
     for (let i = 0; i < 7; i++) {
-      let busy = calendar && calendar.items ? calendar.items.findIndex((event, i) => {
-        if (date.isSameOrAfter(event.start.date) && date.isBefore(event.end.date)) {
+      let busy = calendar && calendar.events ? calendar.events.findIndex((event, i) => {
+        if (date.isSameOrAfter(event.start) && date.isSameOrBefore(event.end)) {
           return true;
         }
         return false;
@@ -63,6 +64,7 @@ export default class Calendar extends React.Component {
   componentDidMount() {
     console.log('componentDidMount');
     CalendarStore.listen(this.storedChanged);
+    CalendarUtils.getCalendarEvents(moment());
   }
 
   componentWillUnmount() {
@@ -89,6 +91,7 @@ export default class Calendar extends React.Component {
     console.log('onToday');
     CalendarActions.today();
   }
+
   renderWeeks() {
     let weeks = [];
     let done = false;

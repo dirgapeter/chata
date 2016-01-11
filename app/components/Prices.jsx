@@ -1,10 +1,6 @@
 import React from 'react';
 import { Well, Table, Row, Col, Image } from 'react-bootstrap';
 
-/*
-<div className="spinner"><Image src={require('../img/loader.gif')}/></div>
-*/
-
 export default class Prices extends React.Component {
   render() {
     const data = require('../data/prices.json');

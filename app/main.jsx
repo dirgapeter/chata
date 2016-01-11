@@ -10,8 +10,6 @@ import Homepage from './components/Homepage.jsx';
 import Gallery from './components/Gallery.jsx';
 import Calendar from './components/Calendar.jsx';
 import GeoLocation from './components/GeoLocation.jsx';
-import CalendarUtils from './utils/CalendarUtils.jsx';
-import moment from 'moment';
 
 const history = createHistory({
   queryKey: false
@@ -28,10 +26,5 @@ const routerInstance = (
     </Route>
   </Router>
 );
-
-//  'Google client loaded' handler
-window.handleGoogleClientLoad = function() {
-  CalendarUtils.authorize();
-};
 
 ReactDOM.render(routerInstance, document.getElementById('app'));
