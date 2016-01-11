@@ -1,5 +1,5 @@
 import React from 'react';
-import { Well, Table, Row, Col } from 'react-bootstrap';
+import { Well, Table, Row, Col, Image } from 'react-bootstrap';
 
 export default class Prices extends React.Component {
   render() {
@@ -7,6 +7,7 @@ export default class Prices extends React.Component {
 
     return (
       <Row id="prices">
+        <div className="spinner"><Image src={require('../img/loader.gif')}/></div>
         <Col md={12} sm={12} xs={12}>
           <Well>
             <p>Na chate môže byť ubytovaných až 9 hostí. Týždenné a víkendové
