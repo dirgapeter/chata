@@ -1,6 +1,6 @@
 import CalendarActions from '../actions/CalendarActions.jsx';
 
-let utils = null;
+let calendarUtils = null;
 
 class CalendarUtils {
   getCalendarEvents(date) {
@@ -16,5 +16,5 @@ class CalendarUtils {
   }
 };
 
-utils = new CalendarUtils();
-export default utils;
+calendarUtils = new CalendarUtils();
+export default calendarUtils;

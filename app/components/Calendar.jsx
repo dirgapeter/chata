@@ -1,10 +1,10 @@
 import React from 'react';
-import CalendarStore from '../stores/CalendarStore.jsx';
 import moment from 'moment';
 import { Glyphicon, Table, Well, Label, Button, Row, Col, Alert } from 'react-bootstrap';
 import CalendarActions from '../actions/CalendarActions.jsx';
-import Loader from './Loader.jsx';
+import CalendarStore from '../stores/CalendarStore.jsx';
 import CalendarUtils from '../utils/CalendarUtils.jsx';
+import Loader from './Loader.jsx';
 
 class Week extends React.Component {
   render() {
@@ -50,8 +50,8 @@ class Week extends React.Component {
 }
 
 export default class Calendar extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.storedChanged = this.storeChanged.bind(this);
     this.onPrevMonth = this.onPrevMonth.bind(this);
@@ -62,33 +62,27 @@ export default class Calendar extends React.Component {
   }
 
   componentDidMount() {
-    console.log('componentDidMount');
     CalendarStore.listen(this.storedChanged);
     CalendarUtils.getCalendarEvents(moment());
   }
 
   componentWillUnmount() {
-    console.log('componentWillUnmount');
     CalendarStore.unlisten(this.storedChanged);
   }
 
   storeChanged(state) {
-    console.log('storeChanged');
     this.setState(state);
   }
 
   onPrevMonth() {
-    console.log('onPrevMonth');
     CalendarActions.previousMonth();
   }
 
   onNextMonth() {
-    console.log('onNextMonth');
     CalendarActions.nextMonth();
   }
 
   onToday() {
-    console.log('onToday');
     CalendarActions.today();
   }
 
@@ -112,8 +106,6 @@ export default class Calendar extends React.Component {
   }
 
   render() {
-    console.log('Calendar.render');
-
     const date = this.state.date;
     const calendar = this.state.calendar;
     const error = this.state.error;
