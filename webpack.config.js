@@ -26,7 +26,7 @@ var config = {
       { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/octet-stream' },
       { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=image/svg+xml' },
       { test: /\.(jpg|png|gif)$/, loader: 'url?limit=8192'},
-      { test: /\.(json)$/, loader: 'json'},
+      { test: /\.(json)$/, loader: 'file'},
       {
         test: /\.jsx$/,
         loader: 'babel-loader',

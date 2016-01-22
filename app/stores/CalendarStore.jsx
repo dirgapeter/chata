@@ -17,7 +17,6 @@ class CalendarStore {
    }
 
    calendar(newState) {
-     console.log('CalendarStore.calendar ', newState.date.format(), newState.calendar);
      this.setState(newState);
    }
 
@@ -31,21 +30,18 @@ class CalendarStore {
    nextMonth() {
      let date = this.state.date;
      date.add(1, 'M');
-     console.log('CalendarStore.next ', date.format());
      CalendarUtils.getCalendarEvents(date);
    }
 
    previousMonth() {
      let date = this.state.date;
      date.add(-1, 'M');
-     console.log('CalendarStore.next ', date.format());
      CalendarUtils.getCalendarEvents(date);
    }
 
    today() {
      moment.locale('sk');
      let date = moment();
-     console.log('CalendarStore.today ', date.format());
      CalendarUtils.getCalendarEvents(date);
    }
 }

@@ -1,17 +1,21 @@
 import PricesActions from '../actions/PricesActions.jsx';
+import request from 'browser-request';
 
 let pricesUtils = null;
 
 class PricesUtils {
   getPrices() {
-    setTimeout(function() {
-      const data = require('../data/prices.json');
-
-      PricesActions.prices({
-        prices: data,
-        error: null
-      });
-    });
+    request({ method: 'GET', url: require('../data/prices.json'), json: true },
+      function(error, response, body) {
+        if (!error && response.statusCode == 200) {
+          const data = body;
+          PricesActions.prices({
+            prices: data,
+            error: null
+          });
+        }
+      }
+    );
   }
 };
 
