@@ -5,7 +5,7 @@ let pricesUtils = null;
 
 class PricesUtils {
   getPrices() {
-    request({ method: 'GET', url: require('../data/prices.json'), json: true },
+    request({ method: 'GET', url: 'prices.json', json: true },
       function(error, response, body) {
         if (!error && response.statusCode == 200) {
           const data = body;

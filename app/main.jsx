@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './main.less';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import createHistory from 'history/lib/createHashHistory';
+import createHashHistory from 'history/lib/createHashHistory';
 import { Router, Route, IndexRoute } from 'react-router';
 import App from './App.jsx';
 import Prices from './components/Prices.jsx';
@@ -11,7 +11,7 @@ import Gallery from './components/Gallery.jsx';
 import Calendar from './components/Calendar.jsx';
 import GeoLocation from './components/GeoLocation.jsx';
 
-const history = createHistory({
+const history = createHashHistory({
   queryKey: false
 });
 

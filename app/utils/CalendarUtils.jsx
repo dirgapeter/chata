@@ -5,7 +5,7 @@ let calendarUtils = null;
 
 class CalendarUtils {
   getCalendarEvents(date) {
-    request({ method: 'GET', url: require('../data/calendar.json'), json: true },
+    request({ method: 'GET', url: 'calendar.json', json: true },
       function(error, response, body) {
         if (!error && response.statusCode == 200) {
           const data = body;
