@@ -66,7 +66,7 @@ export default class Prices extends React.Component {
       <Row id="prices">
         <Col md={12} sm={12} xs={12}>
           <Well>
-            <p>Na chate môže byť ubytovaných až 9 hostí. Týždenné a víkendové
+            <p>Na chate môže byť ubytovaných až 11 hostí. Týždenné a víkendové
             pobyty sú uprednostnené. Po príchode je chata plne k dispozícii.
             Domáci miláčikovia sú vítaní.</p>
           </Well>
